@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Card</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital@0;1&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <div class="profile-card" data-testid="profilePicture">
+        <div class="content-box">
+
+            <!--name&job-->
+            <div class="content">
+                <h2 data-testid="fullName">Lynet Wanjiru</h2>
+                <p data-testid="jobTitle">Frontend Dev</p>
+            </div>
+
+            <!--bio-->
+            <div class="bio">
+                <p data-testid="shortBio">Passionate Frontend Developer dedicated to crafting seamless UX, 
+                    solving complex problems, and advocating for more women in tech. Driven by innovation and inclusivity
+                     in tech.</p>
+            </div>
+
+            <!--socials-->
+            <div class="socials">
+                <a href="https://www.linkedin.com/in/lynet-wanjiru-1a328a211/" data-testid="socialLinks"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://x.com/lynndevv"><i class="fa-brands fa-x-twitter" data-testid="socialLinks"></i></a>
+                <a href="#"><i class="fa-brands fa-facebook" data-testid="socialLinks"></i></a> 
+                <a href="#"><i class="fa-brands fa-instagram" data-testid="socialLinks"></i></a>
+
+            </div>
+
+            <!-- Location -->
+            <div class="location">
+                <p data-testid="currentLocation">Nairobi, Kenya</p>
+            </div>
+
+            <!--email-->
+            <div class="contact">
+                <p>Let's work together</p>
+                <a href="mailto:shirulynn8@gmail.com" data-testid="emailAddress"><i class="fa-solid fa-envelope"></i></a>
+            </div>
+
+            <!--time in utc-->   
+            <div class="time">
+                <p style="font-weight: 1000;">Current UTC Time:</p>
+                <p id="utc-time" data-testid="currentTime"></p>
+            </div>
+        </div>
+
+    </div>
+    <script src="vanilla.js"></script>
+    <script type="text/javascript">
+        VanillaTilt.init(document.querySelector(".your-element"), {
+            max: 25,
+            speed: 400
+        });
+        
+        VanillaTilt.init(document.querySelectorAll(".your-element"));
+    </script>
+    <script>
+        function updateUTCTime() {
+            const now = new Date();
+            const utcTime = now.toISOString().split("T")[1].split(".")[0]; // Get only HH:MM:SS
+            document.getElementById("utc-time").textContent = utcTime + " UTC";
+        }
+
+        updateUTCTime();
+    </script>
+</body>
+</html>
